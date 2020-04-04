@@ -1,111 +1,39 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8">
     <title>QR sidan</title>
     <style>
         body {
             font-family: monospace;
-            margin: 0 20px;
-        }
-        header {
-            margin: 5px 50px;
-        }
-        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
             margin: 0;
-            display: inline-block;
-            text-decoration: underline black;
-            text-transform: uppercase;
-
         }
-        main {
-            background-color: #eee;
+        .content {
+            background: #eee;
+            padding: 8px;
             display: flex;
-            padding: 20px;
-            border-radius: 5px;
-            flex-direction: row;
-            flex-basis: 0;
-        }
-        .left {
-            display: flex;
+            justify-content: center;
             flex-direction: column;
-            float: left;
-            flex-grow: 1;
+            border-radius: 8px;
         }
-        .before {
-            font-size: 16px;
+        .big,.small {
+            font-size: 42px;
             margin: 0;
+            text-align: center;
         }
-        .text {
-            font-size: 40px;
-            margin: 0;
-            text-transform: uppercase;
-            float: left;
-            height: 46px;
-        }
-        .right {
-            float: right;
-        }
-        .to {
-            margin: 0;
-            font-size: 16px;
+        .small {
+            font-size: 20px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1 class="title">Nedräkning</h1>
-    </header>
-    <main>
-        <div class="left">
-            <p class="before">Dagar till påskafton: </p>
-            <b class="text" id="time"></b>
-        </div>
-        <div class="right">
-            <p class="to">Räknar ner till: </p>
-            <b class="to" id="to">error</b>
-        </div>
-    </main>
+    <div class="content">
+        <b class="big">Hej du där</b>
+        <p class="small">(Ziioooon)</p>
+    </div>
 </body>
 </html>
-<script>
-    var countTo = "04-11-2020 00:00";
-
-    var time = document.getElementById("time");
-    var now, distance;
-    var days, hours, minutes, seconds;
-    var output;
-
-    document.getElementById("to").innerText = countTo;
-    countTo = new Date(countTo);
-    
-    function updateTime() {
-        now = new Date().getTime()
-        distance = countTo - now;
-
-        days = Math.floor((distance / (1000 * 60 * 60 * 24)));
-        hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        if ( days == 0) { days = ""; } else { days = days + ":"; }
-        if ( hours == 0) { hours = ""; } else { hours = hours + ":"; }
-        if ( String(minutes).length == 1 ) { minutes = "0" + minutes + ":"; } else { minutes = minutes + ":"; }
-        if ( String(seconds).length == 1 ) { seconds = "0" + seconds; }
-
-        if (distance < 0) {
-            output = "Nu";
-            time.style.color = "#0c0";
-            clearInterval(interval)
-        } else {
-            output = days + hours + minutes + seconds;
-            time.style.color = "black"
-        }
-        
-        if (output != time.innerText) {
-            time.innerText = output;
-        }
-    }
-
-    var interval = setInterval(updateTime, 50)
-</script>
