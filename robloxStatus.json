@@ -6,15 +6,27 @@
         "associated": ["Pick2460"]
     },
     {
-        "name": "LAXUS_2",
-        "userID": 591818304,
-        "status": "Jag mår inte bra.",
+        "name": "LAXUS_developer",
+        "userID": 992571797,
+        "status": "Jag mår bra.",
         "associated": ["Pick2460"]
     },
     {
-        "name": "LAXUS_3",
-        "userID": 592786623,
-        "status": "Jag bajsar bra.",
+        "name": "LAXUS_developer",
+        "userID": 992571797,
+        "status": "Jag mår bra.",
+        "associated": ["Pick2460"]
+    },
+    {
+        "name": "LAXUS_developer",
+        "userID": 992571797,
+        "status": "Jag mår bra.",
+        "associated": ["Pick2460"]
+    },
+    {
+        "name": "LAXUS_developer",
+        "userID": 992571797,
+        "status": "Jag mår bra.",
         "associated": ["Pick2460"]
     }
 ]
