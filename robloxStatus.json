@@ -1,7 +1,8 @@
-{
-    "LAXUS_developer": {
-        "id": 992571797,
+[
+    {
+        "name": "LAXUS_developer",
+        "userID": 992571797,
         "status": "Jag mår bra.",
-        "workingOn": "Developers Blog"
+        "associated": ["Pick2460"]
     }
-}
+]
