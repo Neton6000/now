@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Webrequests</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    <style>
+        body {
+            background: #232323;
+            display: grid;
+            grid-gap: 48px;
+            font-family: "Roboto", Arial, sans-serif !important;
+        }
+        input,textarea,button {
+            padding: 20px;
+            margin: 12px;
+            border-radius: 16px;
+            background: #2a2a2a;
+            border: 0;
+            box-shadow: 2px 2px 8px 2px #1b1b1b;
+            resize: none;
+            color: #ffffff;
+        }
+        button {
+            background: #30709b;
+            cursor: pointer;
+        }
+        #form {
+            display: grid;
+            grid-template-columns: 70% 30%;
+        }
+        .example {
+            margin: 12px;
+            display: flex;
+        }
+        .example img {
+            height: 48px;
+            border-radius: 50%;
+        }
+        .example div {
+            display: flex;
+            flex-direction: column;
+            color: #ffffff;
+            margin-left: 12px;
+        }
+        .example div span {
+            display: flex;
+            flex-direction: column;
+            font-size: 14px;
+        }
+        #ex-user {
+            color: #ffffff;
+        }
+        #ex-user:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        #ex-msg {
+            color: #c5c5c5;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="url" placeholder="Webhook URL">
+    <form action="" method="POST" id="form">
+        <input type="text" name="avatar_url" id="avatar" placeholder="Avatar URL">
+        <input type="text" name="username" id="user" placeholder="Username">
+        <textarea name="content" id="msg" placeholder="Meddelande" rows="3"></textarea>
+        <button type="submit">Skicka!</button>
+    </form>
+    <div class="example">
+        <img id="ex-avatar" alt="Bild">
+        <div>
+            <span id="ex-user">Användarnamn</span>
+            <span id="ex-msg">Meddelande</span>
+        </div>
+    </div>
+    <script>
+        var url = document.querySelector("#url");
+        var avatar = document.querySelector("#avatar");
+        var user = document.querySelector("#user");
+        var msg = document.querySelector("#msg");
+        var form = document.querySelector("#form");
+
+        url.addEventListener("change", () => {
+            form.action = url.value;
+        });
+        avatar.addEventListener("change", () => {
+            document.querySelector("#ex-avatar").src = avatar.value;
+        });
+        user.addEventListener("input", () => {
+            document.querySelector("#ex-user").innerText = user.value;
+        });
+        msg.addEventListener("input", () => {
+            document.querySelector("#ex-msg").innerText = msg.value;
+        });
+    </script>
+</body>
+</html>
